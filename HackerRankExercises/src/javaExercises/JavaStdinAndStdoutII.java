@@ -8,18 +8,12 @@ public class JavaStdinAndStdoutII {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner(System.in);
 		int a = scan.nextInt();
-		if(a%2==1) {
-			System.out.println("Weird");
-		}
-		else if (a%2 == 0 && 2 <= a && a <= 5) {
-			System.out.println("Not Weird");
-		}
-		else if (a%2 == 0 && 6 <= a && a <= 20) {
-			System.out.println("Weird");
-		}
-		else if (a%2 == 0 && a > 20) {
-			System.out.println("Not Weird");
-		}
+		double b = scan.nextDouble();
+		scan.nextLine();
+		String c = scan.nextLine();
+		System.out.println("String: " + c);
+		System.out.println("Double: " + b);
+		System.out.println("Int: " + a);
 	}
 
 }
