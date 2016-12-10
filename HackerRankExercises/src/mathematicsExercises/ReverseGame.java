@@ -20,13 +20,16 @@ public class ReverseGame {
 			int index = sc.nextInt();
 			int auxiliarValorIndex = array[index];
 
-			int[] newArray = reverseArrayFromIndex(array);
+			int[] newArray = reverseArray(array);
+			
+			for(int value : newArray) {
+				System.out.println("New Array: " + value);
+			}
 
 			int count = 0;
-			
-			
+
 			for (int value : newArray) {
-				if(auxiliarValorIndex == value) {
+				if (auxiliarValorIndex == value) {
 					break;
 				}
 				count++;
@@ -36,26 +39,19 @@ public class ReverseGame {
 		}
 	}
 
-	public static int[] reverseArrayFromIndex(int[] array) {
+	public static int[] reverseArray(int[] array) {
 		int[] newArray = new int[array.length];
-		int alt = 2;
-		int aux = 1;
+		int closestTo0Index = 0;
+		int closestToNIndex = array.length - 1;
 		for (int i = 0; i < array.length; i++) {
-
-			for (int j = i; j < array.length; j++) {			
-				newArray[j] = array[array.length  - aux];
-				aux++;
+			if(i%2==0) {
+				newArray[i] = array[closestToNIndex];
+				closestToNIndex -= 1;
+			} else if (i%2==1) {
+				newArray[i] = array[closestTo0Index];
+				closestTo0Index += 1;
 			}
-			
-			for (int c = 0; c < array.length; c++) {
-				array[c] = newArray[c]; 
-			}
-			
-			aux = 1;
-			alt++;
 		}
-
 		return newArray;
 	}
-
 }
